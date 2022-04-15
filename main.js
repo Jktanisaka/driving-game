@@ -1,5 +1,7 @@
 var car = {
-  direction: 'east'
+  direction: 'east',
+  locationX: 0,
+  locationY: 0
 };
 
 var image = document.querySelector('img');
@@ -23,4 +25,12 @@ function turn(event) {
     image.className = 'west';
     car.direction = 'west';
   }
+  if (event.keyCode === 32) {
+    setInterval(move, 16);
+  }
+}
+
+function move() {
+  image.style.left = car.locationX + 3 + 'px';
+  car.locationX = parseInt(image.style.left);
 }
